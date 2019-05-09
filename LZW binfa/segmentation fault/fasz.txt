@@ -1,0 +1,5 @@
+---/(0)
+depth = 0
+mean = 0
+var = 0
+Bátfai és Renátó a király
