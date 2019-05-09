@@ -1,0 +1,15 @@
+
+<programlisting language="C++"><![CDATA[    
+void szabadit (void)
+    {
+        szabadit (gyoker.egyesGyermek());
+        szabadit (gyoker.nullasGyermek());
+]]></programlisting>
+
+<link xlink:href="link">link</link>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kep" scale="40" align="left" />
+          </imageobject>
+        </mediaobject>
