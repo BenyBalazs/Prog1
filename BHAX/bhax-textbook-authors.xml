@@ -1,0 +1,24 @@
+<authorgroup xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <author>
+        <personname>
+            <surname>Benyovszki</surname>
+            <firstname>Balázs</firstname>        
+        </personname>    
+        <affiliation>
+            <shortaffil>E. hallgató, DE.</shortaffil>
+            <jobtitle>Egyetemi hallgato</jobtitle>
+            <orgname>Debreceni Egyetem</orgname>
+            <orgdiv>Programtervező informatikus BSc - alapképzés</orgdiv>
+            <address>
+                <email>gnuki2000@gmail.com</email>
+            </address>
+        </affiliation>
+        <address>
+            <street>Kassai út 26.</street>
+            <city>Debrecen</city>
+            <postcode>4028</postcode>
+            <country>Magyarország</country>
+            <email>gnuki2000@gmail.com</email>
+        </address>
+    </author>    
+</authorgroup>

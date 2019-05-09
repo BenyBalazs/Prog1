@@ -1,0 +1,152 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gutenberg!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+        <cover>
+            <para>
+                Programozás tankönyvek rövid olvasónaplói.
+            </para>
+        </cover>
+    </info>
+    <section>
+        <title>Programozási alapfogalmak</title>
+        <para>         
+            3 féle programozási nyelvet külömböztetünk meg. Létezik a gép nyelv az assembly szintű nyelv illetve a magas szintű nyelv. A kurzuson a magas szintű programozási nyelvekkel foglalkozunk. Ezeknek a nyelveknek van szemantikai (tartalmi, értelmezési, jelentésbeli szabályok) és szintaktikai (forráskód összeállítási szabályai) részük. A processzor ezekenk az utasításait közveltlenül nem tudja értelmezni ezért szükségünk van egy fordítóprogramra angolul compiler amely a magas szintű kódból gépi kódot állít elő. Ha bármilyen szintaktikai hibát talál a fordító akkor a programot nem lehet lefordítani, hibát fogunk kapni. A programozási nyelveket 3 osztályba sorolhatjuk. Léteznek Imperatív nyelvek legfőbb jellemzőjük, hogy algoritmikus nyelvek, -algoritmust kódolunk és az működteti a processzort- utasítások sorozatát hajtják végre, változókat használnak. Alcsoportjai az eljárásorientált nyelvek és az objektumorientált nyelvek. Léteznek továbbá delklaratív nyelvek, melyek nem algoritmikusak itt a programozó a problémát adja meg és a programba be van építve annak a megoldása. Nyincs lehetőség magasszintű memóriakezelésre. Alcsoportjai a Funkcionális nyelvek és a Logikai nyelvek. 
+        </para>
+    </section>
+    <section>
+	<title>Adattípusok</title>
+    <para>Az adattípusokat 3 dolog határozza meg a <command>tartomány</command> -az értékeke amiket az adott típus fölvehet-, a vele végezhető <command>műveletek</command> -a tartomány elemein végezhető műveletek listája- és a <command>reporezentáció</command> -ezeket, hogyan tároljuk-</para> 
+    <para>Minden programozási nyelvben vannak alap típusok, de eggyes nyelvek lehetővé teszik a saját típusok osztályok készítését is. Ezeknek a programozó állítja be a taroományát a műveleteit és a reprezentációját.</para>
+    <para> Léteznek egyszerű -például az int- és összetett adattípusok iylen például a tömb amely egy statikus és homogén típus, lehet akár többdimenziós is egy tömb.</para>
+    <para><command>Mutató típus</command>nak a lényege, hogy ez egy tárterületre hivatkozik a memóriában,térbeli cím. A legfontosabb művelete az áltla megcímzett tartomány elérése.</para>
+    <para><command>Nevesített konstans</command>nak alapvetően 3 komponense van: név,típus,érték. Ez az érték előre lefixált pl C-ben a #Define "neve" "értéke" ezen módosítani nem lehet ha valahol szükség van rá a nevével lehet rá hivatkozni és fordításnál aneve helyére az érték kerül be.</para>
+    <para>A <command>válltozók</command> a legfontosabb programozási eszközök van nevük -létrehozásuk után ezzel lehet hivatkozni rájik a programmban- , attribútumuk -int,char,dubble-, címük -memóriának arra a részére hivatkozik ahol a változó van- és értékük. A változóknak többféle képpen oszthatunk ki teret a memóriában <command>statikusan</command> -futás előtt eldől mi hova kerül ami aztán ott is marad amég fut a program-, <command>dinamikusan</command> -A címek kiosztását az OS végzi -A válltozó akkor kap címterületet amikor aktív utána eltűnik.- és a <command>programozó is kioszthatja</command> -itt a válltozókhoz a program rendeli hozzá a címet a futási időben. Lehet abszolút cím ekkor fix helyet biztosítunk neki vagy akár lehet relatív cím amikor egy korábbi elem helyzetéhez képest helyezzük el a vílltozót-. Mindhárom esetben tudnunk kell ezeket törölni és nem szabad túlhivatkozni tehát több válltozó nem kaphatja ugyan azt a címterületet. </para>
+    <para><command>A C nelv adattípusai</command></para>
+    <para>Aritmetikai típusok ezen beül egészek(int,longint,shortint) char lebegőpontos(float, double, long double) származtatott típusok : tömb, függvény, mutatő, struktúra. És ezekre csomó példát hoz a könyv. </para>
+    </section>  
+        <section>
+        <title>Kifejezések</title>
+        <para>Részei: Operandusok melyek az értékért felelnek, operátorok ezek a műveleti jelek valamint a sorrendet befolyásoló zárójekel: (). Az operátor lehet prefix, infix, vagy postfix. (operátor előtt között vagy mökött). Egy folyamat kiértékelése során sorrendben végezzük a műveleteket. A sorrend lehet balról-jobbra, jobbról-balra illetve Balról-jobbra a precedencia táblázat figyelembevételével. A műveletek elvégzése előtt meg kell határozni az operandusok értékét. A meghatározás sorrendje nyelvfüggé C-ben tetszőleges (Implementációfüggő). Kiértékelésnél fontosak a speciális kifejezések ilyen sestekben pl. ÉS Vagy sokszor nem is kell végigmenni az egészen az érték már azelőtt eldőlt. </para>
+        <para><command>Kifejezések a C-ben.</command></para>
+        <para>A C egy kifejezésorientált nyelv. A mutatók előjel nélküli egésznek tekinthetők valamitn a tömb neve mutató típusú. 
+        </para>
+        </section>     
+    <section>
+        <title>Programozás bevezetés</title>
+        <para>                
+            <citation>KERNIGHANRITCHIE</citation>
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/zmfT9miB-jY">https://youtu.be/zmfT9miB-jY</link>
+        </para> 
+        <para>
+            Egy új programozási nyelv elsajátiításához a kezdő lépés mindíg a hello world. A program elejére mindíg be kell írni a függvénykönyvtárakat <programlisting language="C"><![CDATA[#include <stdio.h>
+]]></programlisting> ez pl kell a kiiratásokhoz és a beolvasásokhoz. Megismertük a main függvényt ami mindíg le fog futni na matter what. Azt, hogy a program egyes részeit {} zárójelekkel kell elválasztani és, hogy a pfrintf miként is működik.
+        </para>       
+        <para><command>ciklusok válltozók</command>
+    </para>
+    <para>Az 1.2 ben megismerkedhetünk a válltozókkal. Egy programba többféle változót is elhelyezhetünk. Változótípusaink a c nyelvben az int,char,double,long ezek sorban egésszámot, karaktereket, tizedestörteketés hosszúegészeket tárolnak. Egy ciklussal is megismerkedhetünk ami a while ciklus alábbi módon lehet paraméterezni <![CDATA[while (i < j)]]> lényeg, hogy i-től megy j-ig közte lehet <![CDATA[<, >, =, <=, >=, <! ,>!]]> a felkiáltójel a nem egyenlő.  </para>
+    <para> </para>
+    <para>Több ciklust is használhatunk a ciklusok közé tartozik a for és a do while ciklus is for ciklushnaá megadjatjuk a fejében, hogy mennyitől meddig és mit csináljon ;-kel elválasztva.</para>
+    <para> </para>
+    <para>Lehetőségünk van előre megírni helyettesítő szövegeket a programba #define magdineni öreg ez minden helyen ahol a programunkba szerepel a magdineni szó ki fogja cserélni öregre ugyan ez működik számokkal is.Ez segít elkerülni a mágikus konstans helyzetet nem kell eggyesével minden sorba ahol használtuk a válltozót átirogatni.</para>
+    <para>A könyv egy jó módszert mutat C-ben egy karakter beolvasásához és kiírásához. *válltozó* = getchar() melyet aztán a putchar(*válltozó*) irat ki a stnadard kimenetre ami álltalában a terminál.</para>
+    <para> </para>
+    <para>Megismerkedünk a tömbbel. Egy tömbben rengetek adatot el tudunk tárolni így például nek kell a programunkban minden egyes válltozóna külön int vagy char területet nyitni hanem az azonos típusú válltozókat tárolhatjuk egy tömbben is pl int cipomeret[3] {45,46,32}; </para>
+    <para> </para>
+    <para>A programokban az ismétlődő kódcsipeteken nem érdemes mindíg újra leírni újrahasznisítás javallott. Ezeket nevezzük fügvényeknek amiket majd kedvünk szerint hivogatunk példa kedvéjért írjunk egy maximum függvényt.
+    <programlisting language="C"><![CDATA[
+        int max (int a, int b){
+            if (a>b)
+                return a;
+            else 
+                return b;
+        }
+]]></programlisting> 
+    Több dolog is tisztázásra vár. Mi is az az int az elején? Nos az a visszatérési érték ha meghívjuk akkor a max(3,12) helyett ő a nagyobbat fogja beírni jelen esetben az a sor 12-re fog válltani. Ugyan ezen az elven visszaadhat semmit: void törted: double vagy karaktert char.
+</para>
+    </section> 
+    <section>
+        <title>Típusok, operátorok és kifejezések</title>
+        <para>                
+            <citation>KERNIGHANRITCHIE</citation>
+        </para>
+        <para><command>Változók</command></para>
+        <para>Változónevek akkor jók ha tövidek és jól reprezentálják a változó nevét a programban. Vannak kulcsszavak amiket nem használhatunk ezeket a C nyelv fenntartja magának ezek az inf, float, else, if stb.</para>
+        <para>A C nyelvben néhány alapvető adattípus van ezek az int float double és char ezeknek a long illetve short valamint unsigned verzióik. Használat előtt minden válltozót Deklarálni kell pl "típus" "név" = "érték" és ;-vel le kell zárni. Ha az int-be törtszám kerül akkor azt a program levágja érdemes ilyen sestben float vagy double használata.</para>
+        <para>Külömböző aritmetikai poerátpraink vannak a C nyelvben
+<programlisting language="C"><![CDATA[
+	+:összeadás
+	-:kivonás
+	*:szorzás
+	/:osztás
+	%:modulo azaz a két szám osztásakor keletkező maradék.
+]]></programlisting>
+A műveletek kiértékelési sorrendjét ()-el lehet befolyásolni.
+        </para>
+ <para>Logikai operátoraink is vannak  iylen a 
+<programlisting language="C"><![CDATA[
+	>=:nagyobb egyenlő 
+	<=:kissebb egyenlp
+	==:egyenlő?
+	!=:nem egyenlő
+	&&:és
+	||:vagy
+	!"valami":negácó értékmegfordítás
+]]></programlisting>
+ </para> 
+ <para>Ahoz, hogy műveleteket tudjunk végezni külömböző típusokkal ahoz előbb közös alapra kell őket hozni ezt a program megteszi az int és a float között az intet automatikusan float-ra válltja illetva ha a charban szám van akkor azt intként is kezelheti. De pl a float indexként való használata nem lehetséges.</para>
+ <para>A C nyelvben van 2 gyakran használt operátor a ++"válltozó" és ugyan ez -- alezek 1et adnak hozzá és 1et vonnak le. Ezek prefixként és postfixként is használlhatók és a végeredmény ugyan az lesz. Ezeket ciklusoknál használjuk leggyakrabban.</para>
+ <para>A C nyelv rendelkezik bitmanipulációs operátorokkal. Ezek a következők:
+ 	<programlisting language="C"><![CDATA[
+& bitenkénti ÉS
+| bitenkénti megengedő VAGY
+^ bitenkénti kizáró VAGY
+<< BitShift balra
+>> BitShift jobbra
+~ egyes komplemens
+]]></programlisting>
+ </para>
+ <para>Értékadó operátorok is léteznek legegyszerűbb a =(legyen eggyenlő)
+vannak a programozó dolgát könnyítők is ilyen a i += 2 amit azt jelenti, hogy az i legyen eggyenlő i+2-vel magyarul adj hozzá 2-t ez érvényes szorzásra is. Ezek a kifejezések kompaktá és könnyen olvashatóvá teszik a kódot.
+ </para>         
+    </section>
+
+    <section>
+        <title>Vezérlési szerkezetek</title>
+        <para> 
+        </para>
+        <para>Minden utasítás végén ; kell tenni ez az utasításlezáró jel C-ben. Az összefüggő utasításokat {}-ba kell tenni. Lehetőség van elágaztatásra az if(){}
+        else{} használatával. Többirányú verzió a switch utasítás ezen belül eseteket case-eket kell megadni. Vannak ciklusaink, az ismétlődő műveletek végrehajtására while ciklus és a for ciklus a leggyakoribb. Ezek elöltesztelőek tehát előbb kerül végrehajtásra a kritérium kiértékelése mint az alatta lévő kód ezér lehet 1x se fut le. ellentétben a do while ciklus ami 1x biztos lefut mert hátultesztelő. Végtelen ciklusból a break utasítással lehet kiugrani</para>
+        </section>
+    <section>
+        <title>Programozás</title>
+        <para>                
+            Több válltozás is van a C++ és a C nyelv között. Pl kapunk egy boolean tipusú igaz hamis válltozót bool néven ami true vagy false lehet. A c++ már képes szöveget válltozóként tárolni nem mint a C ahol ezt egy karaktereknek a tömbjével kellett megtenni. itt string szöveg = "Pistak kalácsot evett". A C++ nyelveben bárhol lehet válltozótdeklarálni azol utasítás is állhat. C nyelvben egy függvényt a nevével azonosítunk ami azt jelenti, hogy nem lehet 2 azonos nevű függvény.  C++ egy függvényt a neve és az argumentumlistája alapján különíti el ezért akár lehet 2 ugyanolyan nevű függvény is amelynek más az argumentumlistája. Erre egy példa:<programlisting language="C++"><![CDATA[
+void macskajaj (int karom, string tappancs)
+{
+    .....
+}
+
+void macskajaj ()
+{
+    .....
+}
+
+
+]]></programlisting>
+Fontos megjegyzés, hogy a viszsatérési érték nem jelent külömbésget tehát ha az egyik void a másik int de ugyan az a neve és az argumentumai akkor az hibát eredményez. 
+        </para>
+    </section>  
+              <section>
+        <title>Objektumorientáltság alapelvei.</title>
+        <para>A C++ is egy objektumorientált nyelv objektumokat készíthetünk specializálhatunk. Az utasítások egységbe zárása hasonlóan történik mint a C- ben tehát {}-el és minden utasítás végén 1 ; áll. Objektumok létrehozásakor használhatunk konstruktort ez az inicializálásnál fontos.  Az objektumaink által lefoglalt terület felszabadításért a destruktorok felelnek melyke ~ jellel kezdődnek.</para>
+    </section>
+<section>
+        <title>Objektumorientáltság alapelvei.</title>
+        <para>Itt is van lehetőség nevesített konstans deklarálására. Mutatóva jelezhetjük, hogy az érték vagy maga a mutatót nem lehet meválltoztatni. Osztályok tagválltozói is lehetnek a konstansok. Létezik konstansról nem konstansra autómatikus konverzió azomban visszafelé nem létezik. Érdemes a hosszú függvényeket elválasztani a main ből. Így sokszor lehet meghívni és egyszerűbb módosítani. Az inline függvény deklarációjában nem szükséges az inline szó használata és nem is szokták használni. Az inline függvények többszörös deklarációja nem okoz linkelési hibát. A fordító majd eldönti, hogy inline alkalmazza e a függvényt vagy a megszokott módon.</para>
+</section>
+</chapter>                

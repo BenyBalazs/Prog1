@@ -1,0 +1,111 @@
+<revhistory xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <revision>
+        <revnumber>0.0.1</revnumber>
+        <date>2019-02-12</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Az iniciális dokumentum szerkezetének kialakítása.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.2</revnumber>
+        <date>2019-02-14</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Inciális feladatlisták összeállítása.
+        </revremark>
+    </revision>    
+    <revision>
+        <revnumber>0.0.3</revnumber>
+        <date>2019-02-16</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Feladatlisták folytatása.
+            Feltöltés a BHAX csatorna 
+            <link xlink:href="https://gitlab.com/nbatfai/bhax">https://gitlab.com/nbatfai/bhax</link>
+            repójába.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.4</revnumber>
+        <date>2019-02-19</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Aktualizálás, javítások.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.5</revnumber>
+        <date>2019-03-04</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Turing fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.6</revnumber>
+        <date>2019-03-11</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Chomsky fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.7</revnumber>
+        <date>2019-03-18</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Caesar fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.8</revnumber>
+        <date>2019-03-25</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Mandelbrot fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.9</revnumber>
+        <date>2019-04-01</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Welch fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.0</revnumber>
+        <date>2019-04-08</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Conway fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.1</revnumber>
+        <date>2019-04-22</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Schwarzenegger fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.1</revnumber>
+        <date>2019-04-29</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Chaitin fejezet befejezve.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>1.0.0</revnumber>
+        <date>2019-05-09</date>
+        <authorinitials>bbalazs</authorinitials>
+        <revremark>
+            Teljes könyv befejezése!
+        </revremark>
+    </revision>
+
+
+</revhistory>

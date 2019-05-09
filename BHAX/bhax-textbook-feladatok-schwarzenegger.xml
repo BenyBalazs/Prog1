@@ -1,0 +1,184 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Schwarzenegger!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Szoftmax Py MNIST</title>
+        <para>
+            Python
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/j7f9SkJR3oc">https://youtu.be/j7f9SkJR3oc</link>      
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://github.com/tensorflow/tensorflow/releases/tag/v0.9.0">https://github.com/tensorflow/tensorflow/releases/tag/v0.9.0</link> (/tensorflow-0.9.0/tensorflow/examples/tutorials/mnist/), <link xlink:href="https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol">https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol</link>  
+        </para>
+        <para>
+            Ezt a feladatot paszoltam.
+        </para>
+    </section>        
+
+<!--
+    <section>
+        <title>Szoftmax R MNIST</title>
+        <para>
+            R            
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+-->
+    
+    <section>
+        <title>Mély MNIST</title>
+        <para>
+            Python            
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Ezt a feladatot paszoltam.
+        </para>
+    </section>        
+<!--
+    <section>
+        <title>Deep dream</title>
+        <para>
+            Keras            
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+-->                  
+    <section>
+        <title>Minecraft-MALMÖ</title>
+        <para>
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/bAPSu3Rndi8">https://youtu.be/bAPSu3Rndi8</link>      
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Ez egy ingyenes projekt amelyet a Microsoft hozott kétre és minecraft játékos karakterét programozhatjuk vele, adhatunk neki "küldetéseket". A lényeg, hogy mesterséges intelligenciát írunk minecraftban. A program ingyenesen letölthető a microsoft githubjáról <link xlink:href="https://github.com/Microsoft/malmo">innen</link>. Egy stabil releaset kell letölteni a readme-ben található linkről. A minecraft mappában lévő launchClient.sh-val windows esetében egy .bat fájlt fogunk találni. indul a játék. Problémát okoz ha nem jre8 van a gépünkön.
+        </para>
+        <para>Utána már csak egy új terminál ablakot kell nyitni amiben lefuttatjuk a parancsainkat melyeket előtte pythonban megírtunk. A python_examples nevű mappában találunk példakódokat melyekkel elkezdhetjük az ismerkedést. Térjünk is át a kódunk elemzésére.</para>
+<para>
+    Kezdjük el mozgatni a karakterünket. Ehez a agent_host.sendCommand("valami" [1/-1]) sor felelős a valami helyére kerülhetnek a következők: <command>move,strafe,pitch,turn,jump,croutch,attack,use</command>Ezek megfejtése egyszerű angol tudást igényel. A pitch az a kamerát állítja (-)fel meg (+)le a többi szótári fordítás. Nem mindnél lehet -1-et írni a függvénybe iylen pl a jump mert vagy ugrik vagy nem nem tud visszafele ugrani.
+</para>
+<para>Nézzünk egy kis világgenerálást. Itt világgenerálási alapokat és egyéb nyalánkságokat helyezhetünk el. És, hogy ezeket használja is a program ahoz kell ez a sor: <command>my_mission = MalmoPython.MissionSpec()</command>
+<programlisting language="C++"><![CDATA[    
+missionXML='''<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+            <Mission xmlns="http://ProjectMalmo.microsoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            
+              <About>
+                <Summary>Hello world!</Summary>
+              </About>
+              
+              <ServerSection>
+                <ServerHandlers>
+                  <DefaultWorldGenerator //Default vagy Flat generátor lehet                    generatorString="3;7,220*1,5*3,2;3;,biome_1"/> //Világgenerálás alapjai milyen biom legyen
+                  <ServerQuitFromTimeUp timeLimitMs="30000"/> //Missziók idelye.
+                  <ServerQuitWhenAnyAgentFinishes/>
+                </ServerHandlers>
+              </ServerSection>
+              
+              <AgentSection mode="Survival"> //Gamemode.
+                <Name>MalmoTutorialBot</Name> //Karakterünk neve
+                <AgentStart/>
+                <AgentHandlers>
+                  <ObservationFromFullStats/>
+                  <ContinuousMovementCommands turnSpeedDegs="180"/> //Fordulási sebesség
+                </AgentHandlers>
+              </AgentSection>
+            </Mission>''']]></programlisting> </para>
+
+            <para>Akkor lett volna a legegyszerűbb dolgunk ha egy egyszerű sima páylát generáltunk volna mert akkor nem kéne akadályokat kikerülni,de ez a szép a mincraftban, hogy dombos fás és egyéb terepek is léteznek melyeket meg kell tudnia hóditani a programunknak.</para>
+            <para>Folyamatosan figyeljük a világot és ha van olyan megfigyelt érték akkor átadjuk.
+<programlisting language="C++"><![CDATA[    
+if world state.number of observations since last state > 0:
+    msg = world_state.observations[-1].text
+    observations = json.loads(msg)
+    nbr = observations.get("nbr3x3", 0)
+    print("Mit latok: ", nbr)
+    
+    if "Yaw" in observations:
+        SYaw = observations["Yaw"]
+    if "Pitch" in observations:
+        SPitch = observations["Pitch"]
+    if "XPos" in observations:
+        Xkoordinata = observations["XPos"]
+    if "ZPos" in observations:
+        Zkoordinata = observations["ZPos"]
+    if "YPos" in observations:
+        Ykoordinata = observations["YPos"]
+]]></programlisting></para>
+<para>Itt pedig a külömböző esetek, hogy miként kerülje ki a blokkokat a karakter. Merre forduljon.
+    <programlisting language="C++"><![CDATA[    
+    if SYaw >= 180-22.5 and SYaw <= 180+22.5 :
+        elotteidx = 1
+        elotteidxj = 2
+        elotteidxb = 0
+        
+    if SYaw >= 180+22.5 and SYaw <= 270-22.5 :
+        elotteidx = 2
+        elotteidxj = 5 
+        elotteidxb = 1
+        
+    if SYaw >= 270-22.5 and SYaw <= 270+22.5 :
+        elotteidx = 5
+        elotteidxj = 8
+        elotteidxb = 2
+        
+    if SYaw >= 270+22.5 and SYaw <= 360-22.5 :
+        elotteidx = 8
+        elotteidxj = 7
+        elotteidxb = 5
+        
+    if SYaw >= 360-22.5 or SYaw  <= 0+22.5 :
+        elotteidx = 7
+        elotteidxj = 6 
+        elotteidxb = 8
+        
+    if SYaw >= 0+22.5 and SYaw <= 90-22.5 :
+        elotteidx = 6
+        elotteidxj = 3
+        elotteidxb = 7
+        
+    if SYaw >= 90-22.5 and SYaw <= 90+22.5 :
+        elotteidx = 3
+        elotteidxj = 0
+        elotteidxb = 6
+        
+    if SYaw >= 90+22.5 and SYaw <= 180-22.5 :
+        elotteidx = 0
+        elotteidxj = 1
+        elotteidxb = 3
+]]></programlisting>
+</para>
+<para>Az értékek amiket felvehet a Yaw azok lényegébe a szélrózsa értékel az É K NY D nek megvannak a saját értékei fokban. Ezek pedig a következők. É(180) K(-90) NY(90) D(0)</para>
+    </section>        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+</chapter>                
