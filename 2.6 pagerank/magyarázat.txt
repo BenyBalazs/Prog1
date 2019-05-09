@@ -1,0 +1,1 @@
+A porgram azt csinálja, hogy összeméri azt, hogy menyi oldal mutat a másikra és az adott oldalra mutató linkeknek a presztizsét is leelörzi, hogy megtudjuk, hogy mennyire releváns az oldal és rangsort álít. 

@@ -1,0 +1,1 @@
+Cseréljük meg a változókat mindenféle segédváltozó nélkül. Az I/O műveletek végrehajtásához kell az stdio.h fejléc. A printf ben a %d az számot irat ki decimálisban a %s karaktert helyettesítés a "\n" pedig egy enter.S
